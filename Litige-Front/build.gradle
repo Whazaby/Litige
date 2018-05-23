@@ -33,5 +33,32 @@ repositories {
     mavenCentral()
 }
 
+clean {
+    dependsOn ":cleanAngular"
+}
 
+
+task installAngular(type:Exec) {
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+		commandLine "npm.cmd", "install"
+	} else {
+		commandLine "npm", "install"
+	}
+}
+
+task buildAngular(type:Exec) {
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+		commandLine "npm.cmd", "run prod"
+	} else {
+		commandLine "npm", "run", "prod"
+	}
+}
+
+task cleanAngular(type: Delete) {
+  delete 'dist'
+}
+
+task cleanConf(type: Delete) {
+  delete '.gradle'
+}
 
