@@ -14,7 +14,8 @@
 
 
 war {
-    baseName = 'litige-front-app'
+    //baseName = 'litige-front-app'
+	archiveName = 'litige-front-app.war'
     version =  '1.0'
     manifest {
         attributes 'Main-Class': 'com.guillaume.Application'
