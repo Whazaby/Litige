@@ -37,6 +37,9 @@ clean {
     dependsOn ":cleanAngular"
 }
 
+build.doFirst{
+	buildAngular
+}
 
 task installAngular(type:Exec) {
 	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
@@ -62,3 +65,19 @@ task cleanConf(type: Delete) {
   delete '.gradle'
 }
 
+task hello {
+    doLast {
+        println '1 Hello Earth'
+    }
+}
+hello.doFirst {
+    println '2 Hello Venus'
+}
+hello.doLast {
+    println '3 Hello Mars'
+}
+hello {
+    doLast {
+        println '4 Hello Jupiter'
+    }
+}
