@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: guillaume
+      changes:
+        - createTable:
+            tableName: LITIGATION
+            columns:
+              - column:
+                  name: ID
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: FIRST_NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: LAST_NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EMAIL
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: MESSAGE
+                  type: varchar(10000)
+                  constraints:
+                    nullable: false   
+              - column:
+                  name: OBJECT
+                  type: varchar(255)
+                  constraints:
+                    nullable: false               
+              - column:
+                  name: LOCALITY
+                  type: varchar(50)
+                  constraints:
+                    nullable: false 
+              - column:
+                  name: PHONE_NUMBER
+                  type: varchar(10)
+                  constraints:
+                    nullable: false        
