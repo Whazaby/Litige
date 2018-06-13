@@ -17,6 +17,8 @@ export class XhrInterceptor implements HttpInterceptor {
     const xhr = req.clone({
       headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
     });
+    console.log('request intercep: ', xhr);
+
     return next.handle(xhr);
   }
 }
@@ -38,7 +40,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-	  LitigeModule
+    LitigeModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -14,9 +14,10 @@ export class AppComponent {
   constructor(private app: AppService, private http: HttpClient, private router: Router) {
     this.app.authenticate(undefined, undefined);
   }
+  greeting = {'id': 'XXX', 'content': 'Hello World'};
 
   logout() {
-    this.http.post('localhost:8080/logout', {}).pipe(finalize(() => {
+    this.http.post('http://localhost:8080/logout', {}).pipe(finalize(() => {
       this.app.authenticated = false;
       this.router.navigateByUrl('/login');
     })).subscribe();
