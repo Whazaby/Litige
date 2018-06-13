@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {MatFormFieldModule, MatSelectModule} from '@angular/material';
-import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Component, OnInit} from '@angular/core';
+import {LitigeService} from "./litige.service";
 
- 
+
 @Component({
   selector: 'app-litige',
   templateUrl: './litige.component.html',
@@ -11,9 +9,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 })
 export class LitigeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private litigeService: LitigeService) { }
+
+  public test : String ="aze";
 
   ngOnInit() {
+    this.litigeService.getLitige(1).subscribe(response => {
+      console.log('get litige: ',response);
+      this.test = <string>response;
+    });
   }
+
+
 
 }
