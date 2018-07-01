@@ -1,0 +1,29 @@
+security:
+  user:
+    name: user
+    password: password
+  ignored:
+  - "*.bundle.*"
+
+  
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/Litige
+    username: spring
+    password: spring
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    contexts: 
+    default-schema: 
+    drop-first: true
+    enabled: true
+    labels: 
+    url: jdbc:postgresql://localhost/Litige 
+    user: spring
+    password: spring
+
+liquibase.change-log: classpath:liquibase-changeLog.xml
+
+
+  
+  
