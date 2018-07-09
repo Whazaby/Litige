@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Injectable, NgModule} from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { AppService } from './app.service';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
-import { LitigeModule } from './litiges/litige.module';
-import {RouterModule, Routes} from "@angular/router";
-import {HTTP_INTERCEPTORS, HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-import {HomeComponent} from "./home/home.component";
-import {LoginComponent} from "./login/login.component";
-import {AppService} from "./app.service";
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -17,8 +15,6 @@ export class XhrInterceptor implements HttpInterceptor {
     const xhr = req.clone({
       headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
     });
-    console.log('request intercep: ', xhr);
-
     return next.handle(xhr);
   }
 }
@@ -39,12 +35,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    LitigeModule
+    FormsModule
   ],
   providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

@@ -1,11 +1,9 @@
 security:
   user:
-    name: user
     password: password
   ignored:
   - "*.bundle.*"
 
-  
 spring:
   datasource:
     url: jdbc:postgresql://localhost/Litige
