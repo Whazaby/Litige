@@ -14,7 +14,7 @@ export class HomeComponent {
   greeting = {};
 
   constructor(private app: AppService, private http: HttpClient) {
-    http.get('http://localhost:8080/api/resource').subscribe(data => {
+    http.get('/api/resource').subscribe(data => {
      this.greeting = data;
       console.log('Coucou ', data);
     });

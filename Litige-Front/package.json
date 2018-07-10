@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "ng build --base-href /litige-front-app/",
-    "start": "ng serve --base-href /litige-front-app/ --deploy-url /litige-front-app/",
+    "start": "ng serve --base-href /litige-front-app/ --deploy-url /litige-front-app/ --proxy-config proxy.conf.json",
     "build": "ng build --prod --base-href /litige-front-app/ --deploy-url /litige-front-app/"
   },
   "private": true,
